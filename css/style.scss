@@ -1,0 +1,128 @@
+/****** GENERAL ******/
+
+@font-face {
+    font-family: "Aniron";
+    src: url(../fonts/aniron_regular.ttf);
+}
+
+@font-face {
+    font-family: "Party";
+    src: url(../fonts/party_business.ttf);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    padding-top: 60px;
+}
+
+h1 {
+    font-family: "Aniron";
+    font-size: 25px
+}
+
+main {
+    background-image: url(../img/bg_light.png);
+}
+
+section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/****** ********* ******/
+
+/****** NAVBAR ******/
+
+.navbar {
+    background-color: #ff5f01;
+    border: 0;
+    padding-bottom: 10px;
+}
+
+.navbar-default .navbar-brand {
+     color: white;
+}
+
+.navbar-brand {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+    font-family: "Aniron";
+    max-width: 180px;
+	
+	&:hover {
+		border-bottom: 2px solid #fff;
+	}
+}
+
+/****** ******** ******/
+
+
+/****** MAIN ******/
+
+main section .row {
+	margin-bottom: 30px;
+}
+
+@mixin ring($color, $size) {
+	width: $size;
+	height: $size;
+
+	border: $size*0.05 $color solid;
+	border-radius: $size / 2;
+
+	$shadow: $size * 0.02;
+	box-shadow: inset $shadow $shadow $shadow $shadow darken($color, 5%),
+				$shadow $shadow $shadow $shadow darken($color, 5%);
+}
+
+
+.orange-ring {
+	@include ring(#ff6500, 50px);
+	margin-top: 10px;
+}
+
+.yellow-ring {
+	@include ring(#ffc700, 150px);
+	margin-top: 10px;
+}
+
+.black-ring {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+
+@for $i from 1 through 6 {
+	$size: 70px * $i * 0.4;
+    .black-ring-#{$i} {
+		position: relative;
+		left: -($size*($i - 0.3))/6;
+        @include ring(#3c3c3c, $size);
+    }
+}
+
+/****** **** ******/
+
+
+/****** FOOTER ******/
+
+footer {
+    background-color: #FF6600;
+    font-family: "Aniron";
+    font-size: 15px;
+    padding: 30px;
+	
+	& a {
+		color: #fff;
+	}
+	
+	& p {
+		padding: 5px 0 5px 0;
+	}
+}
